@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- in css it is after line no 350 -->
+    <div id="cursor"
+    class=" hidden md:block   pointer-events-none fixed z-10 top-0 left-0 w-[3vw] h-[3vw] border-[.3vw] border-stone-400 rounded-[3vw]">
+</div>
+    <div id="main1">
+      <div
+        id="nav"
+        class="h-[12vh] md:my-[0vw] md:mt-[0vw] nav fixed w-full flex justify-between items-center px-6 mt-[-45vw] md:px-[3vw] z-[9999]"
+      >
+        <div id="logo">
+          <img
+            src="./codenest.png"
+            alt="codenest logo"
+            class="w-12 h-8 md:w-[4.5vw] md:h-[3vw]"
+          />
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="md:hidden text-black text-2xl">
+          &#9776;
+        </button>
+
+        <!-- Navigation Items -->
+        <div
+          id="elems"
+          class=" font hidden md:flex justify-between items-center gap-4 md:gap-[.9vw] font-poppins font-normal text-lg md:text-[1.3vw]"
+        >
+          <div class="navelem cursor-pointer">Index</div>
+          <div class="navelem cursor-pointer">Projects</div>
+          <div class="navelem cursor-pointer">Services</div>
+          <div class="navelem cursor-pointer">Contact</div>
+        </div>
+
+        <!-- Connect Button -->
+        <div id="connect" class="hidden md:block">
+          <button class="CartBtn">
+            <p class="text">Let's Talk</p>
+            <span class="IconContainer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 24 24"
+                fill="white"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center z-[9999] hidden"
+      >
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">
+          &times;
+        </button>
+        <div
+          id="text"
+          class="flex flex-col items-center justify-center leading-none px-[10vw]"
+        >
+          <div
+            class="elem left-[4vw] font-poppins font-semibold text-[15vw] mt-[-140vw] absolute left-[2vw]"
+          >
+            Index
+          </div>
+          <div
+            class="elem left-[4vw] font-poppins font-semibold text-[15vw] mt-[-110vw] absolute left-[2vw]"
+          >
+            Projects
+          </div>
+          <div
+            class="elem left-[4vw] font-poppins font-semibold text-[15vw] mt-[-80vw] absolute left-[2vw]"
+          >
+            Services
+          </div>
+          <div
+            class="elem left-[4vw] font-poppins font-semibold text-[15vw] mt-[-50vw] absolute left-[2vw]"
+          >
+            Contact
+          </div>
+        </div>
+        <div
+          id="line"
+          class="border border-solid border-white w-[92vw] absolute top-[70vh] mx-[4vw]"
+        ></div>
+        <div
+          id="line"
+          class="w-full absolute top-[72vh] left-[4vw] font-poppins font-semibold text-[6vw]"
+        >
+          <h1>Creative Design Agency</h1>
+        </div>
+        <div
+          id="button2"
+          class="absolute top-[80vh] left-[4vw] text-stone-100 font-poppins font-regular"
+        >
+          2024 Codenest All rights reserved
+        </div>
+        <div id="logo">
+          <img
+            src="./codenesticoon.png"
+            alt="codenest logo"
+            class="w-9 h-8 md:w-[4.5vw] md:h-[3vw] absolute top-[80vh] right-[2.5vw]"
+          />
+        </div>
+      </div>
+      <div id="page1" class="h-scree  w-[100vw]">
+          <div class="container pt-[10vw]" >
+              <div class="scroll-container " id="scrollContainer">
+                <div id="overlay" class="absolute inset-0 pointer-events-none"></div>
+                  
+                  <div class="scroll-item  bg-cover bg-[url(https://images.unsplash.com/photo-1535391879778-3bae11d29a24?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZ1dHVyaXN0aWNzfGVufDB8fDB8fHww)]   "></div>
+                  <div class="scroll-item  bg-cover bg-center bg-[url(https://images.unsplash.com/photo-1688227150987-3aedd5d4f11e?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]   "></div>
+                  <div class="scroll-item  bg-cover bg-center bg-[url(https://images.unsplash.com/photo-1536662788222-6927ce05daea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D)]   "></div>
+                  <div class="scroll-item  bg-cover bg-center bg-[url(https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHBvcCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D)]   "></div>
+                  <div class="scroll-item  bg-cover bg-[url(https://images.unsplash.com/photo-1513909894411-7d7e04c28ecd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fHBvcCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D)]   "></div>
+                  <div class="scroll-item  bg-cover  bg-cover bg-[url(https://i.pinimg.com/236x/1c/0a/6e/1c0a6ebc64bf0d4c0059a103f4c19bd4.jpg)]   "></div>
+                  <div class="scroll-item  bg-cover bg-[url(https://i.pinimg.com/236x/25/04/84/250484c5e0ff3db6d72b71136617f41e.jpg)]   "></div>
+                  
+                </div>
+            </div>
+            <div id="buttonss" class="flex items-center justify-between px-[5vw] pt-[5vw]">
+
+                <button class="scroll-btn" onclick="scrollLeft()"><i class="ri-arrow-left-s-line"></i></button>
+                <h1 class="captalize font text-[1.3vw]">Scroll to explore</h1>
+              <button class="scroll-btn" onclick="scrollRight()"><i class="ri-arrow-right-s-line"></i></button>
+            </div>
+            </div>
+      
+      <!-- js starts from line no 697 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+      <script src="scriptproject.js"></script>
+  </body>
+</html>

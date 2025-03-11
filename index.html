@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./codenesticoon.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ["Poppins", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Block Hover Effect */
+        .block {
+            transition: opacity 0.3s ease-in, background 0.3s ease-in;
+            opacity: 0;
+            /* Initially hidden */
+        }
+
+        .block.active {
+            opacity: 1 !important;
+            background-color: #ccccccb3;
+            /* Yellow overlay */
+        }
+    </style>
+
+
+    <title>Codenest</title>
+</head>
+
+<body class="h-screen w-full bg-[#ebebeb]">
+    <div id="cursor"
+        class=" hidden md:block   pointer-events-none fixed z-10 top-0 left-0 w-[3vw] h-[3vw] border-[.3vw] border-stone-400 rounded-[3vw]">
+    </div>
+    <div id="main" data-scroll-container class="bg-[#ebebeb] ">
+        <div id="nav"
+            class="h-[12vh] md:my-[0vw] md:mt-[0vw] nav  fixed w-full flex justify-between items-center px-6  mt-[-45vw] md:px-[3vw]  z-[9999] ">
+            <div id="logo">
+                <img src="./codenest.png" alt="codenest logo" class="w-12 h-8 md:w-[4.5vw] md:h-[3vw]">
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-black text-2xl">
+                &#9776;
+            </button>
+
+            <!-- Navigation Items -->
+            <div id="elems"
+                class="hidden md:flex justify-between items-center gap-4 md:gap-[.9vw] font-poppins font-normal text-lg md:text-[1.3vw]">
+                <div class="navelem cursor-pointer">Index</div>
+                <div class="navelem cursor-pointer">Projects</div>
+                <div class="navelem cursor-pointer">Services</div>
+                <div class="navelem cursor-pointer">Contact</div>
+            </div>
+
+            <!-- Connect Button -->
+            <div id="connect" class="hidden md:block">
+                <button class="CartBtn">
+                    <p class="text">Let's Talk</p>
+                    <span class="IconContainer">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="fixed top-0  left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center   z-[9999] hidden ">
+            <button id="close-menu" class=" absolute top-6 right-6 text-3xl ">&times;</button>
+            <div id="text" class=" flex flex-col items-center justify-center leading-none px-[10vw] ">
+                <div class="elem left-[4vw] font-poppins font-semibold  text-[15vw] mt-[-140vw] absolute left-[2vw]">
+                    Index</div>
+                <div class="elem left-[4vw] font-poppins font-semibold  text-[15vw] mt-[-110vw] absolute left-[2vw]">
+                    Projects</div>
+                <div class="elem left-[4vw] font-poppins font-semibold  text-[15vw] mt-[-80vw] absolute left-[2vw]">
+                    Services</div>
+                <div class="elem left-[4vw] font-poppins font-semibold  text-[15vw] mt-[-50vw] absolute left-[2vw]">
+                    Contact</div>
+            </div>
+            <div id="line" class="border border-solid border-white w-[92vw] absolute top-[70vh] mx-[4vw]"></div>
+            <div id="line" class=" w-full absolute top-[72vh] left-[4vw] font-poppins font-semibold text-[6vw]">
+                <h1>Creative Design Agency</h1>
+            </div>
+            <div id="button2" class="   absolute top-[80vh] left-[4vw] text-stone-100 font-poppins   font-regular">2024
+                Codenest All rights reserved
+            </div>
+            <div id="logo">
+                <img src="./codenesticoon.png" alt="codenest logo"
+                    class="w-9 h-8 md:w-[4.5vw] md:h-[3vw] absolute top-[80vh] right-[2.5vw]">
+            </div>
+        </div>
+
+        <div id="page1" class=" md:h-[100vh] sm:px-6 md:pt-[12vw] lg:px-8 ">
+            <div id="top"></div>
+            <div id="codenest" class="text-center md:px-[25vw]   ">
+                <h1
+                    class="codenest font-poppins font-medium text-[18vw] md:text-[10vw] md:mt-[0vw] mt-[50vw]  tracking-tighter">
+                    Codenest
+                </h1>
+                <h3
+                    class="font-poppins   font-normal codenest-text text-stone-700 text-[4vw] sm:text-[2.5vw] md:text-[1.7vw] mt-[-1.9vw] tracking-tight">
+                    Designing websites that<br>Captivate, Connect, and Convert
+                </h3>
+            </div>
+            <div id="lower" class="md:flex md:justify-between md:mt-[5vw]">
+                <div id="button"
+                    class=" button flex flex-col md:flex-row items-center  text-[4vw] sm:text-[2vw] md:text-[1.5vw]">
+                    <a href="#page2" class="md:mt-[7vw] mt-[20vw]   text-stone-900 font-medium ">
+                        <i class="ri-arrow-down-line"></i>
+                    </a>
+                    <a href="#page2"
+                        class="mt-[7vw] md:mt-[7vw] text-stone-900 text-[3vw] md:ml-[3vw] md:text-[1.3vw] font-poppins font-regular">
+                        Scroll to Explore
+                    </a>
+                </div>
+                <div id="images"
+                    class=" images flex-row md:flex md:flex-wrap justify-center gap-[6vw] md:gap-[1vw] md:ml-[-3vw] px-[3vw] mt-[20vw] md:mt-[5vw]">
+                    <div id="image1" class="images1">
+                        <img src="./111.jpg" alt="image1"
+                            class="w-[100vw] h-[80vh]  sm:w-[12vw] md:w-[8vw] md:h-[15vh] rounded-lg object-cover object-center ">
+                        <div id="num" class=" hidden text-center md:block text-[2.5vw] sm:text-[1.5vw] md:text-[.9vw]">
+                            01
+                        </div>
+                        <div id="cell" class="flex justify-between">
+                            <div id="num"
+                                class=" font-poppins font-regular ml-[0vw] md:hidden text-[1.8em] sm:text-[1.5vw]  ">
+                                The Infin</div>
+                            <div id="num"
+                                class=" font-poppins font-regular mt-[3vw] text-right md:hidden text-[1.1em] sm:text-[1.2vw] mt-[1.5vw] ">
+                                Photography</div>
+                        </div>
+                    </div>
+                    <div id="image2" class="images2">
+                        <img src="./2.jpeg" alt="image1"
+                            class="w-[100vw] h-[80vh] mt-[7vw] md:mt-[0vw]  sm:w-[12vw] md:w-[8vw] md:h-[15vh] rounded-lg object-cover object-center">
+                        <div id="num" class=" hidden text-center md:block text-[2.5vw] sm:text-[1.5vw] md:text-[.9vw]">
+                            02
+                        </div>
+                        <div id="cell" class="flex justify-between">
+                            <div id="num"
+                                class=" font-poppins font-regular ml-[0vw] md:hidden text-[1.8em] sm:text-[1.5vw]  ">
+                                Cherish</div>
+                            <div id="num"
+                                class=" font-poppins font-regular text-right md:hidden text-[1.1em] sm:text-[1.5vw] mt-[1.5vw] ">
+                                Branding</div>
+                        </div>
+                    </div>
+                    <div id="image3" class="images3">
+                        <img src="./3.jpeg" alt="image1"
+                            class="w-[100vw] h-[80vh]  mt-[7vw] md:mt-[0vw] sm:w-[12vw] md:w-[8vw] md:h-[15vh] rounded-lg object-cover object-center">
+                        <div id="num" class=" hidden text-center md:block text-[2.5vw] sm:text-[1.5vw] md:text-[.9vw]">
+                            03
+                        </div>
+                        <div id="cell" class="flex justify-between">
+                            <div id="num"
+                                class=" font-poppins font-regular ml-[0vw] md:hidden text-[1.8em] sm:text-[1.5vw]  ">
+                                Play</div>
+                            <div id="num"
+                                class=" font-poppins font-regular text-right md:hidden text-[1.1em] sm:text-[1.5vw] mt-[1.5vw] ">
+                                App</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="button2"
+                    class="  button hidden  md:block mt-[3vw] ml-[36vw] md:ml-[0vw] md:mt-[9vw] text-stone-900 font-poppins font-regular text-[3vw]  md:text-[1.3vw] ">
+                    Featured Projects
+                </div>
+            </div>
+        </div>
+
+        <div id="page2" class=" h-[25vh] md:h-[50vh] mt-[3vw]  flex  text-center leading-none justify-center md:px-4 ">
+            <div id="content" class="text-center">
+                <div id="firstline"
+                    class="flex flex-wrap justify-center font-poppins font-semibold   text-[7vw] md:text-[5.3vw] tracking-tighter">
+                    <h2>We help businesses</h2>
+                    <div id="box1"
+                        class="  box box11 h-[4vw] w-[4vw] sm:h-[4vw] sm:w-[4vw] bg-stone-700 rounded-lg bg-cover my-[1vw] mx-[1vw]"
+                        style="background-image: url(https://images.unsplash.com/photo-1559703248-dcaaec9fab78?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8);">
+                    </div>
+                    <h2 class="hidden md:block">to innovate</h2>
+                </div>
+                <h2 class=" md:hidden font-poppins font-semibold   text-[7vw]">to innovate and</h2>
+                <div id="secondline"
+                    class="flex flex-wrap justify-center font-poppins font-semibold text-[6vw] md:text-[5.3vw] tracking-tighter">
+                    <h2 class="hidden md:block">and</h2>
+                    <div id="box2"
+                        class="box box22 h-[4vw] w-[4vw] sm:h-[4vw] sm:w-[4vw] bg-stone-700 rounded-lg bg-cover my-[1vw] mx-[1vw]"
+                        style="background-image: url(https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8);">
+                    </div>
+                    <h2 class="hidden md:block">remain highly relevant to</h2>
+                    <h2 class=" md:hidden font-poppins font-semibold   text-[7vw]">remain highly relevant to</h2>
+                </div>
+                <div id="thirdline"
+                    class="flex flex-wrap justify-center font-poppins font-semibold   text-[7vw]  sm:text-[5.3vw] tracking-tighter">
+                    <h2>their customers by developing</h2>
+                    <div id="box3"
+                        class=" box33 box hidden md:block h-[4vw] w-[4vw] sm:h-[4vw] sm:w-[4vw] bg-stone-700 rounded-lg bg-cover my-[1vw] mx-[1vw]"
+                        style="background-image: url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBvcCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D);">
+                    </div>
+                </div>
+                <div id="fourthline" class="flex flex-wrap justify-center ">
+                    <div id="box3"
+                        class="box md:hidden h-[4vw] w-[4vw] sm:h-[4vw] sm:w-[4vw] bg-stone-700 rounded-lg bg-cover my-[1vw] mx-[1vw]"
+                        style="background-image: url(https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBvcCUyMGFydHxlbnwwfHwwfHx8MA%3D%3D);">
+                    </div>
+                    <h2 class="font-poppins font-semibold text-[7vw] sm:text-[5.3vw] tracking-tighter">edge digital
+                        products
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div id="videodesktop" data-scroll class=" hidden md:block flex items-center justify-center mt-[5vw] w-full h-screen">
+            <!-- Video Container -->
+            <div id="videoContainer" class="relative w-full h-full overflow-hidden rounded-lg">
+
+                <!-- Background Video -->
+                <video id="video" class="videoss absolute inset-0 w-full h-full object-cover" autoplay loop muted>
+                    <source src="./videos.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Blocks Grid Overlay -->
+                <div id="imageblock"
+                    class="absolute top-0 left-0 w-full h-full grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 grid-rows-6 sm:grid-rows-8 md:grid-rows-10">
+                    <!-- JavaScript will generate blocks here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="page3"
+            class="h-[20vh] flex  justify-center items-center ml-[2vw] mt-[8vw] md:mt-[5vw]   md:ml-[30vw] ">
+            <div id="thecontent">
+                <div id="title"
+                    class="shuffle-text font-poppins font-regular text-[1.3em] md:text-[1.7vw] tracking-tighter">
+                    <h2>The Challenge</h2>
+                </div>
+                <div id="para"
+                    class="font-poppins font-regular text-[3vw] sm:text-[1.1vw] tracking-tighter max-w-[80%] sm:max-w-[50%] ">
+                    <h3>Turning ideas into stunning digital experiences! Take on the challenge of exceptional web design
+                        with us.</h3>
+                </div>
+                <div id="about" class="flex items-center mt-[4vw] md:mt-[1vw]">
+                    <div id="text" class="font-poppins font-regular text-[1.3em]">About</div>
+                    <div id="circle"
+                        class=" md:h-[2vw] md:w-[2vw] w-[4vw] h-[4vw] ml-[2vw]  bg-stone-900 rounded-full  ">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="wordimage" class=" page2 h-[100vh] w-full flex flex-col leading-none justify-center mt-[.9vw] md:mt-[5vw] items-center text-center">
+            
+            <div id="overlay1" class="absolute bg-red-400 "></div>
+            <div class="elem  elem1 relative px-[0vw] relative " data-img="./pic11.jpg">
+                <h2 class="cursor-pointer  text-[6vw] shuffle-text text-white uppercase font-poppins font-medium ">VALOUR
+                </h2>
+
+            </div>
+            <div id="overlay2"></div>
+            <div class="elem elem1  relative  px-[0vw]  " data-img="./pic22.jpg">
+                <h2 class="cursor-pointer text-[6vw] shuffle-text text-white uppercase font-poppins font-medium">FUN
+                </h2>
+
+            </div>
+            <div class="elem elem1 relative px-[0vw]  " data-img="./pic33.jpg">
+                <h2 class="cursor-pointer text-[6vw] shuffle-text text-white uppercase font-poppins font-medium">
+                    PERFECTION
+                </h2>
+
+            </div>
+            <div class="elem elem1 relative px-[0vw] " data-img="./pic4.jpg">
+                <h2 class="cursor-pointer text-[6vw] shuffle-text text-white uppercase font-poppins font-medium">CHARM
+                </h2>
+
+            </div>
+            <div class="elem elem1 relative px-[0vw]  " data-img="./pic55.jpg">
+                <h2 class="cursor-pointer text-[6vw] shuffle-text text-white uppercase font-poppins font-medium">
+                    HYPNOTIC
+                </h2>
+
+            </div>
+
+        </div>
+        <div id="project"
+            class="   md:hidden h-[30%]  w-full pt-[8vw]  text-[5vw]  md:h-[35%] md:text-[2vw] md:pt-[3vw] ">
+
+            <div id="theline"
+                class="  flex justify-center  font-poppins font-semibold mt-[9vw] pb-[6vw] md:mt-[1vw] md:pb-[1.7vw]   ">
+                <h3>Continue Exploring Our Work</h3>
+            </div>
+            <div id="theline"
+                class=" Projects flex justify-center bg-black text-white px-5 py-[4vw]  mx-[31vw] rounded-full md:py-[1vw] md:mx-[42vw]">
+                <button>
+                    <h4>All Projects</h4>
+                </button>
+            </div>
+
+        </div>
+      
+        <div id="videomobile" data-scroll class=" md:hidden flex items-center justify-center w-full h-screen">
+            <!-- Video Container -->
+            <div id="videoContainer" class="relative w-full h-full overflow-hidden rounded-lg">
+
+                <!-- Background Video -->
+                <video id="video" class="videoss absolute inset-0 w-full h-full object-cover" autoplay loop muted>
+                    <source src="./videos.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Blocks Grid Overlay -->
+                <div id="imageblock"
+                    class="absolute top-0 left-0 w-full h-full grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 grid-rows-6 sm:grid-rows-8 md:grid-rows-10">
+                    <!-- JavaScript will generate blocks here -->
+                </div>
+            </div>
+        </div>
+
+        <div id="page6" class="flex flex-col items-center mt-[2vw] text-center px-4 sm:px-9">
+            <div id="logocen" class="flex justify-center ">
+                <div id="logos" class="w-[12vw] sm:w-[4.5vw] h-[8vw] sm:h-[3vw]">
+                    <img src="./codenest.png" alt="">
+                </div>
+            </div>
+            <div id="headingcent" class="mt-[3vw] mb-[1.5vw]">
+                <h2 class="text-[8vw] sm:text-[4.5vw] font-poppins leading-none font-semibold">The Place where your
+            </div><!-- From Uiverse.io by kennyotsu -->
+            <div class="card mt-[-3vw]">
+                <div class="loader">
+                    <div class="words font-poppins font-medium ">
+                        <span class="word">Business</span>
+                        <span class="word">Clients</span>
+                        <span class="word">Business</span>
+                        <span class="word">Trust</span>
+                        <span class="word">Relation</span>
+                    </div>
+                    <p>Grows</p>
+                </div>
+            </div>
+
+            <div id="textcent" class="mb-[3vw]">
+                <h3 class="text-[4vw] sm:text-[1.6vw] font-poppins font-regular">Discover how Codenest is redefining
+                    <br>Business development
+                </h3>
+            </div>
+            <div id="forms" class="w-full max-w-[80%] sm:max-w-[50%]">
+                <form id="contact-form" class="flex flex-col items-center gap-[2vw]">
+                    <input type="hidden" name="access_key" value="12dce690-888f-47cd-878f-27b4c3f4ff49">
+                    <div class="flex flex-col sm:flex-row gap-[2vw] w-full justify-center">
+                        <input type="email" name="email" id="email" placeholder="Enter your email"
+                            class="contact h-[8vw] sm:h-[3vw] w-full sm:w-[21vw] bg-stone-100 border-[.1vw] border-solid border-stone-950 rounded-lg px-4"
+                            required>
+                        <button id="submit-btn" type="submit"
+                            class="h-[8vw] sm:h-[3vw] w-full sm:w-[10vw] text-[3vw] sm:text-[1vw] bg-stone-100 rounded-lg flex items-center justify-center">
+                            Need the service
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="project"
+            class=" hidden md:block h-[20%]  w-full   md:h-[35%] md:text-[2vw] md:pt-[3vw] ">
+
+            <div id="theline"
+                class="  flex justify-center  font-poppins font-semibold mt-[9vw] pb-[6vw] md:mt-[1vw] md:pb-[1.7vw]   ">
+                <h3>Continue Exploring Our Work</h3>
+            </div>
+            <div id="theline"
+                class=" Projects flex justify-center bg-black text-white px-5 pt-[4vw]  mx-[31vw] rounded-full md:py-[.8vw] md:mx-[43vw]">
+                <button>
+                    <h4 class="text-[1.7vw]">All Projects</h4>
+                </button>
+            </div>
+
+        </div>
+<div id="page5" class="h-screen relative ">
+    <div id="textplace" class="">
+    <div id="text" class=" ">
+        <h1 class="cursor-pointer flex codenest  know1 md:mt-[0vw]  pt-[38vh] items-center justify-center md:mx-[32vw]  shuffle-text  font-poppins font-medium text-[4em] md:text-[9vw]  tracking-tighter">
+            Creative
+        </h1>
+        <h1
+            class="  cursor-pointer  codenest shuffle-text  hidden md:block  know font-poppins font-medium text-[4em] md:mx-[18.4vw] md:text-[9vw] mt-[-6vw] tracking-tighter">
+            Design Agency
+        </h1>
+        <h1
+            class=" flex items-center justify-center  md:hidden codenest shuffle-text font-poppins font-medium text-[4em] md:text-[9vw] mt-[-6vw] tracking-tighter">
+            Design
+        </h1>
+        <h1
+            class="   flex items-center justify-center md:hidden codenest shuffle-text font-poppins font-medium text-[4em] md:text-[9vw] mt-[-6vw] tracking-tighter">
+            Agency
+        </h1>
+    </div></div>
+    <h3 class="font-poppins flex items-center  justify-center text-center font-normal text-stone-500 text-[1em] md:text-[1.7vw] tracking-tight md:mt-8">
+        We are passionate about<br>creating memorable experiences
+    </h3>
+    <div id="lower" class="flex items-center justify-between px-[3vw] mt-[7vw]">
+        <div id="button" class="text-[1.5vw] flex items-center  max-w-screen-lg mt-6">
+            <div id="left" class="flex gap-[.9vw]">
+                
+                <a href="#main" id="button1" class="  md:hidden absolute  bottom-[10vw] left-[6vw] font-semibold"><i
+                    class="ri-arrow-up-wide-line text-[8vw]"></i></a>
+            </div>
+                <div id="button1" class="  hidden md:block text-stone-900 font-light"><i class="ri-arrow-up-wide-line"></i>
+                </div>
+            <a href="#main" class="  hidden md:block text-stone-600 text-[1.3vw] ml-[2vw] font-semibold">Back to Top</a>
+        </div>
+        <div id="button1" class="justify-center">
+            <div id="button2" class=" hidden md:block text-stone-800 font-poppins font-semibold ">2024 <span
+                    class="underline">Codenest</span> All rights reserved
+            </div>
+            <div id="button2"
+                class="  md:hidden text-stone-800 font-poppins font-poppins absolute mb-[3vw] bottom-[10vw] right-[6vw] font-semibold text-[4vw]">
+                2024 Codenest All rights reserved
+            </div>
+        </div>
+        <div id="right" class="flex gap-[.9vw]">
+            <div id="button2" class=" hidden md:block  text-stone-600 font-poppins text-[1.3vw] font-semibold">
+                Follow Us</div>
+            <div id="button2" class=" hidden md:block text-stone-600 font-poppins font-light"><i class="ri-share-fill"></i>
+            </div>
+    
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
